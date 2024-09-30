@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Lista de Feedbacks</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Feedbacks</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+     				    <th>Topico</th>	
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${feedbacks.empty}">
+                        <td colspan="5">Lista de feedbacks vazia</td>
+                    </tr>
+                    <tr th:each="feedback : ${feedbacks}" >
+                        <td><span th:text="${feedback.idFeedback}"> ID </span></td>
+                        <td><span th:text="${feedback.indiceSatisfacao}"> Satisfação </span></td>
+                        <td><span th:text="${feedback.dataFeedback}"> Data </span></td>
+                        <td><span th:text="${feedback.usuario.nome}"> Nome do usuário </span></td>
+                        
+                        <td>
+                        
+                         <form th:action="@{/feedbacks/{id}(id=${feedback.idFeedback})}" th:object="${feedback}" method="get">
+                       
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Editar">
+                        
+                        </form>
+                        
+                        </td>
+                        
+                        <td>
+                        
+                         <form th:action="@{/feedbacks/{id}(id=${feedback.idFeedback})}" th:object="${feedback}" method="post">
+                        	
+                        	<input type="hidden" name="_method" value="delete">
+                       
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Excluir">
+                        
+                        </form>
+                        
+                        </td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

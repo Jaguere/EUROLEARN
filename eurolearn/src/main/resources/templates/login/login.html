@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<title>Login</title>
+</head>
+<body>
+
+	<div layout:fragment="conteudo">
+		<div class="container-fluid d-flex flex-column px-0 d-flex flex-column justify-content-center" id="login-container">
+
+			<!-- content da pagina -->
+			
+			<h1 class="font-primary login-logo font-bold">eurolearn</h1>
+			
+			<div class="content-container box-shadow-1">
+
+				<form th:action="@{/}" method="post" class="form-entity" th:object="${loginInfo}">
+					
+					<h1 class="form-title">Fazer login</h1>
+
+					<div class="form-content">
+					
+						<div class="form-input">
+                        	<label for="cpf" class="form-label">CPF</label>
+                        	<input class="form-control" id="cpf" th:field="*{cpf}">
+                   		</div>
+                   		
+                   		<div class="form-input">
+                        	<label for="email" class="form-label">Email</label>
+                        	<input class="form-control" id="email"  th:field="*{email}">
+                   		</div>
+                   		
+                   		<div class="form-input">
+                        	<label for="senha" class="form-label">Senha</label>
+                        	<input class="form-control" id="senha" type="password" th:field="*{senha}">
+                   		</div>
+                   		
+                   		<input type="submit" class="form-control form-button box-shadow-1 me-3 background-primary font-white" value="Entrar" id="entrar">
+					
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

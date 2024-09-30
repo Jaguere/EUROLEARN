@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<title>Treinamento - Detalhes</title>
+</head>
+<body>
+
+	<div layout:fragment="conteudo">
+		<div class="container-fluid d-flex flex-column px-0">
+
+			<!-- nav -->
+			<nav class="navbar navbar-expand-lg main-nav box-shadow-1">
+				<div class="container-fluid">
+					<h1 class="main-nav-logo ps-3" href="#">eurolearn</h1>
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+						aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="offcanvas offcanvas-end main-nav-offcanvas"
+						tabindex="-1" id="offcanvasNavbar"
+						aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasNavbarLabel">eurolearn</h5>
+							<button type="button" class="btn-close"
+								data-bs-dismiss="offcanvas" aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav justify-content-end flex-grow-1">
+
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding" href="#"><i
+										class="fa-solid fa-gear pe-3"></i>Tipos de treinamento</a></li>
+
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding" href="#"><i
+										class="fa-solid fa-chalkboard-user pe-3"></i>Treinamentos</a></li>
+
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding" href="#"><i
+										class="fa-solid fa-users-gear pe-3"></i>Usuários</a></li>
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding" href="#"><i
+										class="fa-solid fa-eye pe-3"></i>Monitor de presença</a></li>
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding" href="#"><i
+										class="fa-solid fa-chart-line pe-3"></i>Dashboard</a></li>
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding" href="#"><i
+										class="fa-solid fa-ranking-star pe-3"></i>Ranking de presença</a>
+								</li>
+								<li class="main-nav-item"><a
+									class="nav-link main-nav-items-padding pe-5" href="#"><i
+										class="fa-solid fa-magnifying-glass-chart pe-3"></i>Controle
+										estatístico</a></li>
+								<li class="main-nav-user mt-1 pe-3">
+									<div class="d-flex">
+										<a href=""><i
+											class="fa-solid fa-user pe-3 main-nav-user-icon"></i></a>
+										<div class="d-flex flex-column">
+											<a class="main-nav-user-name" href="">Pedro </a>
+											<p class="main-nav-user-desc">ADMIN</p>
+										</div>
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<!-- breadcrumbs -->
+			<div class="breadcrumbs-container">
+				<a href="" class="breadcrumbs-btn box-shadow-1"><i
+					class="fa-solid fa-arrow-left-long"></i> Voltar</a> <a href=""
+					class="breadcrumbs-link">Treinamentos</a>
+			</div>
+
+			<!-- content da pagina -->
+			<div class="content-container box-shadow-1">
+
+				<h1 class="content-container-title">
+					<span th:text="${treinamentoAgendadoDTO.nome}"></span>
+				</h1>
+				
+				<form method="get" th:action="@{/treinamentos/qrcode/{id}(id=${treinamentoAgendadoDTO.idTreinamentoAgendado})}">
+				
+					<input type="submit" class="btn card-btn-add" value="Gerar qr code">
+				
+				</form>
+				
+				<a th:href="@{/treinamentos/membros/form/{id}(id=${treinamentoAgendadoDTO.idTreinamentoAgendado})}" class="btn card-btn-add">Alterar / Adicionar membros</a>
+
+				<div class="treinamento-details">
+
+					<p class="treinamento-info">
+						Tipo do treinamento : <span
+							th:text="${treinamentoAgendadoDTO.tipoTreinamento.nome}"></span>
+					</p>
+
+<!-- 					<p class="treinamento-info"> -->
+<!-- 						<span th:text="${treinamentoAgendadoDTO.descricao}"></span> -->
+<!-- 					</p> -->
+
+					<p class="treinamento-info"><span th:text="${treinamentoAgendadoDTO.localizacao}"></span></p>
+
+					<p class="treinamento-info"><span th:text="${treinamentoAgendadoDTO.data}"></span></p>
+
+					<div class="treinamento-users py-4">
+
+						<h2>Participantes cadastrados</h2>
+
+						<!--                     <table class="table"> -->
+						<!--                         <thead> -->
+						<!--                             <tr> -->
+						<!--                                 <th scope="col">CPF</th> -->
+						<!--                                 <th scope="col">RG</th> -->
+						<!--                                 <th scope="col">Nome</th> -->
+						<!--                                 <th scope="col">Sobrenome</th> -->
+						<!--                                 <th scope="col">Confirmou</th> -->
+						<!--                             </tr> -->
+						<!--                         </thead> -->
+						<!--                         <tbody> -->
+						<!--                             <tr> -->
+						<!--                                 <td>021.773.680-73</td> -->
+						<!--                                 <td>12.350.183-0</td> -->
+						<!--                                 <td>João</td> -->
+						<!--                                 <td>Da Silva</td> -->
+						<!--                                 <td>Sim</td> -->
+						<!--                             </tr> -->
+						<!--                             <tr> -->
+						<!--                                 <td>021.773.680-73</td> -->
+						<!--                                 <td>12.350.183-0</td> -->
+						<!--                                 <td>João</td> -->
+						<!--                                 <td>Da Silva</td> -->
+						<!--                                 <td>Sim</td> -->
+						<!--                             </tr> -->
+						<!--                             <tr> -->
+						<!--                                 <td>021.773.680-73</td> -->
+						<!--                                 <td>12.350.183-0</td> -->
+						<!--                                 <td>João</td> -->
+						<!--                                 <td>Da Silva</td> -->
+						<!--                                 <td>Sim</td> -->
+						<!--                             </tr> -->
+
+
+						<!--                         </tbody> -->
+						<!--                     </table> -->
+
+
+						<table class="table">
+
+							<thead>
+								<tr>
+									<th scope="col">CPF</th>
+									<th scope="col">RG</th>
+									<th scope="col">Nome</th>
+									<th scope="col">Sobrenome</th>
+									<th scope="col">Email</th>
+<!-- 									<th scope="col">Confirmação feita</th> -->
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="usuario : ${treinamentoAgendadoDTO.usuarios}">
+									<td><span th:text="${usuario.cpf}"></span></td>
+									<td><span th:text="${usuario.rg}"></span></td>
+									<td><span th:text="${usuario.nome}"></span></td>
+									<td><span th:text="${usuario.sobrenome}"></span></td>
+									<td><span th:text="${usuario.email}"></span></td>
+								</tr>
+
+							</tbody>
+
+						</table>
+						
+						<table class="table">
+						
+						<h1 class="pt-4">Confirmações</h1>
+
+							<thead>
+								<tr>
+									<th scope="col">Nome usuário</th>
+									<th scope="col">Data confirmação</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr th:each="confirmacao : ${treinamentoAgendadoDTO.confirmacoes}">
+									<td><span th:text="${confirmacao.usuario.nome}"></span></td>
+									<td><span th:text="${confirmacao.dataConfirmacao}"></span></td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

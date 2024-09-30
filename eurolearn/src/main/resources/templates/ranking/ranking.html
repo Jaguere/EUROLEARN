@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>eurolearn - Ranking de presença</title>
+</head>
+<body>
+	
+	<div layout:fragment="conteudo">
+		<div class="container-fluid d-flex flex-column px-0">
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg main-nav box-shadow-1">
+            <div class="container-fluid">
+                <h1 class="main-nav-logo ps-3" href="#">eurolearn</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end main-nav-offcanvas" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">eurolearn</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1">
+
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-gear pe-3"></i>Tipos de treinamento</a>
+                            </li>
+
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-chalkboard-user pe-3"></i>Treinamentos</a>
+                            </li>
+
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-users-gear pe-3"></i>Usuários</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-eye pe-3"></i>Monitor de presença</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-chart-line pe-3"></i>Dashboard</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-ranking-star pe-3"></i>Ranking de presença</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding pe-5" href="#"><i
+                                        class="fa-solid fa-magnifying-glass-chart pe-3"></i>Controle estatístico</a>
+                            </li>
+                            <li class="main-nav-user mt-1 pe-3">
+                                <div class="d-flex">
+                                    <a href=""><i class="fa-solid fa-user pe-3 main-nav-user-icon"></i></a>
+                                    <div class="d-flex flex-column">
+                                        <a class="main-nav-user-name" href="">Pedro </a>
+                                        <p class="main-nav-user-desc">ADMIN</p>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- breadcrumbs -->
+        <div class="breadcrumbs-container">
+            <a href="" class="breadcrumbs-btn box-shadow-1"><i class="fa-solid fa-arrow-left-long"></i> Voltar</a>
+            <a href="" class="breadcrumbs-link">Ranking de presença</a>
+        </div>
+
+        <!-- content da pagina -->
+        <div class="content-container box-shadow-1">
+
+            <h1 class="content-container-title">Ranking de colaboradores</h1>
+
+            <div class="cards-container">
+            
+                    <div th:each="funcionario : ${ranking}" class="card box-shadow-1">
+                        <div class="card-header font-bold">
+                            <span th:text="${funcionario.nome}"></span> <span> </span> <span th:text="${funcionario.sobrenome}"></span>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><span th:text="${funcionario.taxaPresenca}"></span> % de presença</p>         
+                        </div>
+                    </div>
+
+
+            </div>
+            
+        </div>
+    </div>
+	
+	
+</div>
+</body>
+</html>

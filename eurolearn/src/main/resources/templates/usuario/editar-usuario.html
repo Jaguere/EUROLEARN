@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Editar tipo de treinamento</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+		<div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Editar Usuário</h1>
+                <!-- a primeira / precisa pra ele começar o path do root -->
+                <form th:action="@{/usuarios/{id}(id=${usuarioDTO.cpf})}" method="post" th:object="${usuarioDTO}">
+                
+                <!-- essa linha serve pra traduzir o método de post para delete, por padrão o html não aceita delete como método http -->
+                <input type="hidden" name="_method" value="put">
+                
+                    <div class="row mb-3">
+                        <label for="cpf" class="col-sm-1 col-form-label">CPF:</label>
+                        <div class="col-sm-5">
+                            <input id="cpf" class="form-control" type="text" th:field="*{cpf}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="rg" class="col-sm-1 col-form-label">RG:</label>
+                        <div class="col-sm-5">
+                            <input id="rg" class="form-control" type="text" th:field="*{rg}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="nome" class="col-sm-1 col-form-label">nome:</label>
+                        <div class="col-sm-5">
+                            <input id="nome" class="form-control" type="text" th:field="*{nome}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label for="sobrenome" class="col-sm-1 col-form-label">sobrenome:</label>
+                        <div class="col-sm-5">
+                            <input id="sobrenome" class="form-control" type="text" th:field="*{sobrenome}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label for="genero" class="col-sm-1 col-form-label">genero:</label>
+                        <div class="col-sm-5">
+                            <input id="genero" class="form-control" type="text" th:field="*{genero}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label for="email" class="col-sm-1 col-form-label">email:</label>
+                        <div class="col-sm-5">
+                            <input id="email" class="form-control" type="text" th:field="*{email}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+                    </div>
+                    
+                      <div class="row mb-3">
+                        <label for="dataNasc" class="col-sm-1 col-form-label">dataNasc:</label>
+                        <div class="col-sm-5">
+                            <input id="dataNasc" class="form-control" type="text" th:field="*{dataNasc}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('dataNasc')}" th:errors="*{dataNasc}"></span>
+                        </div>
+                  	  </div>
+                    
+                    <div class="row mb-3">
+                        <label for="senha" class="col-sm-1 col-form-label">senha:</label>
+                        <div class="col-sm-5">
+                            <input id="senha" class="form-control" type="text" th:field="*{senha}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label for="dataUltimaSenha" class="col-sm-1 col-form-label">dataUltimaSenha:</label>
+                        <div class="col-sm-5">
+                            <input id="dataUltimaSenha" class="form-control" type="date" th:field="*{dataUltimaSenha}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('dataUltimaSenha')}" th:errors="*{dataUltimaSenha}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="nivelAcesso" class="col-sm-1 col-form-label">nivelAcesso:</label>
+                        <div class="col-sm-5">
+                            <input id="nivelAcesso" class="form-control" type="text" th:field="*{nivelAcesso}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('nivelAcesso')}" th:errors="*{nivelAcesso}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label for="cargo" class="col-sm-1 col-form-label">cargo:</label>
+                        <div class="col-sm-5">
+                            <input id="cargo" class="form-control" type="text" th:field="*{cargo}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('cargo')}" th:errors="*{cargo}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="setor" class="col-sm-1 col-form-label">setor:</label>
+                        <div class="col-sm-5">
+                            <input id="setor" class="form-control" type="text" th:field="*{setor}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('setor')}" th:errors="*{setor}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="dataAdmissao" class="col-sm-1 col-form-label">dataAdmissao:</label>
+                        <div class="col-sm-5">
+                            <input id="dataAdmissao" class="form-control" type="date" th:field="*{dataAdmissao}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('dataAdmissao')}" th:errors="*{dataAdmissao}"></span>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                
+                 <input class="btn btn-primary" type="submit" value="Alterar" />
+                
+                </form>
+            </div>
+
+        </div>
+    </div>
+	</div>
+</body>
+</html>

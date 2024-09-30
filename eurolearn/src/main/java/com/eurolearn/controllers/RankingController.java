@@ -1,0 +1,24 @@
+package com.eurolearn.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.eurolearn.services.RankingService;
+
+@Controller
+@RequestMapping("/ranking")
+public class RankingController {
+
+	@Autowired
+	public RankingService service;
+	
+	@GetMapping
+	public String ranking(Model model) {
+		model.addAttribute("ranking", service.buildRanking());
+		return "ranking/ranking";
+	}
+	
+}

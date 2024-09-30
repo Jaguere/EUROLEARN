@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Lista de Tipos de treinamento</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Tipos de treinamento</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+     				      <th>Topico</th>	
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${tipostreinamento.empty}">
+                        <td colspan="5">Lista de produtos vazia</td>
+                    </tr>
+                    <tr th:each="tipo : ${tipostreinamento}" >
+                        <td><span th:text="${tipo.nome}"> Nome </span></td>
+                        <td><span th:text="${tipo.descricao}"> Descrição </span></td>
+                        <td><span th:text="${tipo.topico}"> Tópico </span></td>
+                        
+                        <td>
+                        
+                        <!-- {id}(id=${tipo.id}) tem que ser assim pq o thymeleaf não consegue acessar o tipo.id diretamente -->
+                        <form th:action="@{/tipostreinamento/{id}(id=${tipo.idTipoTreinamento})}" th:object="${tipo}" method="get">
+                        
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Editar">
+                        
+                        </form>
+                        
+                        </td>
+                        
+                        <td>
+                        
+                        
+                        <form th:action="@{/tipostreinamento/{id}(id=${tipo.idTipoTreinamento})}" th:object="${tipo}" method="post">
+                        	
+                        	<input type="hidden" name="_method" value="delete">
+                       
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Excluir">
+                        
+                        </form>
+                        
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

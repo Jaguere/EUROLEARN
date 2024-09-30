@@ -1,0 +1,249 @@
+/* body */
+body{
+    /* background-color: var(--content-container-bg); */
+    /* background: linear-gradient(var(--body-gradient-angle), var(--body-gradient-color-1) 0%, var(--body-gradient-color-2) 100%); */
+    background-color: var(--white);
+    background-repeat: no-repeat;
+}
+
+/* main nav */
+.main-nav{
+    background-color: var(--main-nav-bg-color);
+    height: 80px;
+}
+
+.main-nav-offcanvas{
+    background-color: var(--main-nav-bg-color);
+}
+
+.main-nav-logo{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-nav-item{
+    padding-left: 10px;
+}
+
+.main-nav-item a{
+    /* mudar o tamanho da fonte para ser responsivo */
+    font-size: 16px;
+    font-weight: normal;
+    transition: 0.075s;
+    color: var(--main-nav-item-color);
+}
+
+
+.main-nav-item a:hover{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.main-nav-user{
+    padding-left: 10px !important;
+}
+
+.main-nav-user-name:hover{
+    font-weight: bold;
+}
+
+.main-nav-user-icon{
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 32px;
+    padding-top: 10px;
+}
+
+.main-nav-user-name{
+    font-size: 18px;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: 0.075s;
+}
+
+.main-nav-user-desc{
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+}
+
+.main-nav-items-padding{
+    padding-top: 14px !important;
+}
+
+/* content container */
+.content-container{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding: 30px 50px;
+    background-color: var(--white);
+    margin-top: 20px;
+    /* height: 100vh; */
+    border-radius: 30px;
+}
+
+/* breadcrumbs */
+.breadcrumbs-container{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 30px;
+    display: flex;
+}
+
+.breadcrumbs-btn{
+    background-color: var(--white);
+    border-radius: 50px;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.breadcrumbs-link{
+    font-size: 16px;
+    color: var(--tertiary-color);
+    margin: 5px 10px 0px 10px;
+}
+
+.breadcrumbs-icon{
+    margin: 10px 5px 0px 5px;
+}
+
+/* forms */
+.form-entity {
+
+}
+
+.form-title{
+
+}
+
+.form-content{
+    margin-top: 2%;
+}
+
+.form-control{
+    border-radius: 10px;
+}
+
+.form-input{
+    margin-bottom:30px;
+}
+
+.form-label{
+
+}
+
+.form-buttons-container{
+    display: flex;
+}
+
+.form-button{
+    width: 200px;
+    border-radius: 50px;
+    border: none;
+}
+
+ /* graficos */
+.graph-container{
+    margin: 5% 2%;
+}
+
+.graph-title{
+    margin: 2% 0;
+}
+
+.graph-filter{
+    margin-top: 5%;
+}
+
+.graph-animated-value{
+	color: var(--primary-color);
+}
+
+.graph-animated-value-danger{
+	color: var(--warning-color);
+}
+
+.graph-animated-value-text{
+	font-size: 72px;
+}
+
+.filter-label{
+    font-size: 1.5em;
+}
+
+.filter-select{
+    margin-bottom: 2%;
+    width: 25vw;
+    font-size: 1em;
+}
+
+/* cards */
+.cards-container{
+}
+
+.card{
+    margin: 3% 0;
+}
+
+.card-header{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.card-btn-editar{
+    background-color: var(--primary-color);
+    color: var(--white); 
+}
+
+.card-btn-excluir{
+    background-color: var(--warning-color);
+    color: var(--white);
+}
+
+.card-btn-add{
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: 0.5s;
+    margin-top: 2%;
+}
+
+.card-btn-editar:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: bold;
+}
+
+.card-btn-excluir:hover {
+    background-color: var(--warning-color);
+    color: var(--white);
+    font-weight: bold;
+}
+
+.card-btn-add:hover{
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--box-shadow-1);
+}
+
+/* treinamento details page */
+.treinamento-details{
+    margin: 3% 0;
+}
+
+.treinamento-info{
+    margin: 2% 0;
+}
+
+#login-container{
+	height: 100vh !important;
+}
+
+.login-logo{
+	margin-left: 5% !important;
+}

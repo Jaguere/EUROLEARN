@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Lista de Usuários</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Usuarios</h1>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+     				    <th>Topico</th>	
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${usuarios.empty}">
+                        <td colspan="5">Lista de usuarios vazia</td>
+                    </tr>
+                    <tr th:each="usuario : ${usuarios}" >
+                        <td><span th:text="${usuario.cpf}"> CPF </span></td>
+                        <td><span th:text="${usuario.rg}"> RG </span></td>
+                        <td><span th:text="${usuario.nome}"> Nome </span></td>
+                        <td><span th:text="${usuario.sobrenome}"> Sobrenome </span></td>
+                        <td><span th:text="${usuario.genero}"> Gênero </span></td>
+                        <td><span th:text="${usuario.email}"> E-mail </span></td>
+                        <td><span th:text="${usuario.dataNasc}"> Nome </span></td>
+                        <td><span th:text="${usuario.cargo}"> Cargo </span></td>
+                        <td><span th:text="${usuario.setor}"> Setor </span></td>
+                        <td><span th:text="${usuario.senha}"> Senha </span></td>
+                        
+                        <td>
+                        
+                         <form th:action="@{/usuarios/{id}(id=${usuario.cpf})}" th:object="${usuario}" method="get">
+                       
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Editar">
+                        
+                        </form>
+                        
+                        </td>
+                        
+                        <td>
+                        
+                         <form th:action="@{/usuarios/{id}(id=${usuario.cpf})}" th:object="${usuario}" method="post">
+                        	
+                        	<input type="hidden" name="_method" value="delete">
+                       
+                        	<input class="btn btn-primary btn-xs" type="submit" value="Excluir">
+                        
+                        </form>
+                        
+                        </td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

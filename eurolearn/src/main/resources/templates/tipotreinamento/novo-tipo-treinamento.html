@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Cadastro de Tipo de Treinamento</title>
+</head>
+
+<body>
+<div layout:fragment="conteudo">
+			<!--     <div class="container"> -->
+			<!--         <div class="row"> -->
+			<!--             <div class="col"> -->
+			<!--                 <h2>Cadastro de Tipos de Treinamento</h2> -->
+			<!--                 <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}"> -->
+			<!--                     <button class="btn-close" data-bs-dismiss="alert" type="button"></button> -->
+			
+			<!--                     <span th:text="${mensagem}"></span> -->
+			<!--                 </div> -->
+			
+			<!--                 <form action="#" method="post" th:action="@{/tipostreinamento}" th:object="${tipoTreinamentoDTO}"> -->
+			
+			<!--                     <div class="row mb-3"> -->
+			<!--                         <label class="col-sm-1 col-form-label" for="nome">Nome:</label> -->
+			<!--                         <div class="col-sm-5"> -->
+			<!--                             <input class="form-control" id="nome" th:field="*{nome}" type="text"/> -->
+			<!--                         </div> -->
+			<!--                         <div class="col-sm-5"> -->
+			<!--                             <span class="mensagem" th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></span> -->
+			<!--                         </div> -->
+			<!--                     </div> -->
+			
+			<!--                     <div class="row mb-3"> -->
+			<!--                         <label class="col-sm-1 col-form-label" for="descricao">Descrição:</label> -->
+			<!--                         <div class="col-sm-3"> -->
+			<!--                             <input class="form-control" id="descricao" th:field="*{descricao}" type="text"> -->
+			<!--                         </div> -->
+			<!--                         <div class="col-sm-5"> -->
+			<!--                             <span class="mensagem" th:errors="*{descricao}" -->
+			<!--                                   th:if="${#fields.hasErrors('descricao')}"></span> -->
+			<!--                         </div> -->
+			<!--                     </div> -->
+			                    
+			<!--                      <div class="row mb-3"> -->
+			<!--                         <label class="col-sm-1 col-form-label" for="topico">Tópico:</label> -->
+			<!--                         <div class="col-sm-3"> -->
+			<!--                             <input class="form-control" id="descricao" th:field="*{topico}" type="text"> -->
+			<!--                         </div> -->
+			<!--                         <div class="col-sm-5"> -->
+			<!--                             <span class="mensagem" th:errors="*{topico}" -->
+			<!--                                   th:if="${#fields.hasErrors('topico')}"></span> -->
+			<!--                         </div> -->
+			<!--                     </div> -->
+			
+			<!--                     <input class="btn btn-primary" type="submit" value="Salvar"/> -->
+			<!--                 </form> -->
+			
+			<!--             </div> -->
+			<!--         </div> -->
+			<!--     </div> -->
+			
+			
+		<div class="container-fluid d-flex flex-column px-0">
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg main-nav box-shadow-1">
+            <div class="container-fluid">
+                <h1 class="main-nav-logo ps-3" href="#">eurolearn</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end main-nav-offcanvas" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">eurolearn</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1">
+
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-gear pe-3"></i>Tipos de treinamento</a>
+                            </li>
+
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-chalkboard-user pe-3"></i>Treinamentos</a>
+                            </li>
+
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-users-gear pe-3"></i>Usuários</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-eye pe-3"></i>Monitor de presença</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-chart-line pe-3"></i>Dashboard</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding" href="#"><i
+                                        class="fa-solid fa-ranking-star pe-3"></i>Ranking de presença</a>
+                            </li>
+                            <li class="main-nav-item">
+                                <a class="nav-link main-nav-items-padding pe-5" href="#"><i
+                                        class="fa-solid fa-magnifying-glass-chart pe-3"></i>Controle estatístico</a>
+                            </li>
+                            <li class="main-nav-user mt-1 pe-3">
+                                <div class="d-flex">
+                                    <a href=""><i class="fa-solid fa-user pe-3 main-nav-user-icon"></i></a>
+                                    <div class="d-flex flex-column">
+                                        <a class="main-nav-user-name" href="">Pedro </a>
+                                        <p class="main-nav-user-desc">ADMIN</p>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- breadcrumbs -->
+        <div class="breadcrumbs-container">
+            <a href="" class="breadcrumbs-btn box-shadow-1"><i class="fa-solid fa-arrow-left-long"></i> Voltar</a>
+            <a href="" class="breadcrumbs-link">Tipos de treinamento</a>
+            <i class="fa-solid fa-chevron-right breadcrumbs-icon"></i>
+            <a href="" class="breadcrumbs-link">Cadastrar novo tipo de treinamento</a>
+        </div>
+
+        <!-- content da pagina -->
+        <div class="content-container box-shadow-1">     
+
+            <!-- form -->
+            <form action="#" method="post" th:action="@{/tipostreinamento}" th:object="${tipoTreinamentoDTO}" class="form-entity">
+                <h1 class="form-title">Cadastrar novo tipo de treinamento</h1>
+
+                <div class="form-content">
+
+                    <div class="form-input">
+                        <label for="nome" class="form-label">Nome do tipo de treinamento</label>
+                        <input class="form-control" id="nome" th:field="*{nome}" type="text">
+                    </div>
+                  
+                    <div class="form-input">
+                        <label for="desc" class="form-label">Descrição</label>
+                        <textarea class="form-control" id="descricao" th:field="*{descricao}" type="text"></textarea>
+                    </div>
+
+                    <div class="form-input">
+                        <label for="topico" class="form-label">Tópico / Categoria</label>
+                        <input class="form-control" id="topico" th:field="*{topico}" type="text">
+                    </div>
+
+                    <div class="form-buttons-container">
+                        <input type="submit" class="form-control form-button box-shadow-1 me-3 background-primary font-white" value="Salvar" id="enviar">
+                        <a href="/tipostreinamento" class="btn form-button box-shadow-1 background-tertiary font-white" id="cancelar">Cancelar</a>
+                    </div>
+                   
+                   
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

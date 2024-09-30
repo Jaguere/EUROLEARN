@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Editar tipo de treinamento</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+		<div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Editar tipo de treinamento</h1>
+                <!-- a primeira / precisa pra ele começar o path do root -->
+                <form th:action="@{/tipostreinamento/{id}(id=${tipotreinamentodto.idTipoTreinamento})}" method="post" th:object="${tipotreinamentodto}">
+                
+                <!-- essa linha serve pra traduzir o método de post para delete, por padrão o html não aceita delete como método http -->
+                <input type="hidden" name="_method" value="put">
+                
+                    <div class="row mb-3">
+                        <label for="nome" class="col-sm-1 col-form-label">Nome:</label>
+                        <div class="col-sm-5">
+                            <input id="nome" class="form-control" type="text" th:field="*{nome}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="descricao" class="col-sm-1 col-form-label">Descrição:</label>
+                        <div class="col-sm-5">
+                            <input id="descricao" class="form-control" type="text" th:field="*{descricao}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label for="topico" class="col-sm-1 col-form-label">Tópico:</label>
+                        <div class="col-sm-5">
+                            <input id="topico" class="form-control" type="text" th:field="*{topico}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('topico')}" th:errors="*{topico}"></span>
+                        </div>
+                    </div>
+                
+                 <input class="btn btn-primary" type="submit" value="Alterar" />
+                
+                </form>
+            </div>
+
+        </div>
+    </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Cadastro de Usuário</title>
+</head>
+
+<body>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Cadastro de Usuários</h2>
+                <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                    <button class="btn-close" data-bs-dismiss="alert" type="button"></button>
+
+                    <span th:text="${mensagem}"></span>
+                </div>
+
+                <form action="#" method="post" th:action="@{/usuarios}" th:object="${usuarioDTO}">
+
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="cpf">CPF:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="nome" th:field="*{cpf}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{cpf}" th:if="${#fields.hasErrors('cpf')}"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="nome">Nome:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="nome" th:field="*{nome}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></span>
+                        </div>
+                    </div>
+                    
+                    
+                   <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="sobrenome">Sobrenome:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="sobrenome" th:field="*{sobrenome}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{sobrenome}" th:if="${#fields.hasErrors('sobrenome')}"></span>
+                        </div>
+                    </div>
+                   
+                   <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="genero">Gênero:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="genero" th:field="*{genero}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{genero}" th:if="${#fields.hasErrors('genero')}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="email">Email:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="email" th:field="*{email}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="dataNasc">Data de nascimento:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="dataNasc" th:field="*{dataNasc}" type="date"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{dataNasc}" th:if="${#fields.hasErrors('dataNasc')}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="rg">RG:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="rg" th:field="*{rg}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{rg}" th:if="${#fields.hasErrors('rg')}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="senha">Senha:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="senha" th:field="*{senha}" type="password"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{senha}" th:if="${#fields.hasErrors('senha')}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="dataUltimaSenha">Data da última senha:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="dataUltimaSenha" th:field="*{dataUltimaSenha}" type="date"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{dataUltimaSenha}" th:if="${#fields.hasErrors('dataUltimaSenha')}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="nivelAcesso">Nível de acesso:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="nivelAcesso" th:field="*{nivelAcesso}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{nivelAcesso}" th:if="${#fields.hasErrors('nivelAcesso')}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="cargo">Cargo:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="cargo" th:field="*{cargo}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{cargo}" th:if="${#fields.hasErrors('cargo')}"></span>
+                        </div>
+                    </div>
+                    
+                     <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="setor">Setor:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="setor" th:field="*{setor}" type="text"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{setor}" th:if="${#fields.hasErrors('setor')}"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label" for="dataAdmissao">Data de admissão:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" id="dataAdmissao" th:field="*{dataAdmissao}" type="date"/>
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:errors="*{dataAdmissao}" th:if="${#fields.hasErrors('dataAdmissao')}"></span>
+                        </div>
+                    </div>
+                    
+
+                    <input class="btn btn-primary" type="submit" value="Salvar"/>
+                </form>             
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
